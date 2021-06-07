@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-// import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
   providedIn: 'root'
@@ -8,23 +8,23 @@ import { Injectable } from '@angular/core';
 export class BusyService {
   busyRequestCount = 0;
 
-  // constructor(private spinnerService: NgxSpinnerService) { }
-  constructor() { }
+  constructor(private spinnerService: NgxSpinnerService) { }
+  // constructor() { }
 
   busy() {
     this.busyRequestCount++;
-    // this.spinnerService.show(undefined, {
-    //   type: 'line-scal-party',
-    //   bdColor: 'rgba(255,255,255,0)',
-    //   color: '#333333'
-    // });
+    this.spinnerService.show(undefined, {
+      type: 'line-scale-party',
+      bdColor: 'rgba(255,255,255,0)',
+      color: '#333333'
+    });
   }
 
   idle() {
     this.busyRequestCount--;
     if (this.busyRequestCount <= 0) {
       this.busyRequestCount = 0;
-      // this.spinnerService.hide();
+      this.spinnerService.hide();
     }
   }
 }
