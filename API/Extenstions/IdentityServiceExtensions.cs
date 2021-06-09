@@ -1,5 +1,5 @@
 using System.Text;
-using API.Controllers.Services;
+using API.Services;
 using API.Data;
 using API.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

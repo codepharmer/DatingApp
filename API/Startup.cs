@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using API.Controllers.Services;
+using API.Services;
 using API.Data;
 using API.Extenstions;
 using API.Interfaces;
