@@ -49,7 +49,7 @@ export class MembersService {
     params = params.append('gender', userParams.gender.toString());
     params = params.append('orderBy', userParams.orderBy.toString());
 
-    return this.getPaginatedResult<Member[]>(this.baseUrl + 'users', params)
+    return this.getPaginatedResult<Partial<Member[]>>(this.baseUrl + 'users', params)
       .pipe(map(response => {
         this.memberCache.set(Object.values(userParams).join('-'), response);
         return response;
@@ -103,5 +103,15 @@ export class MembersService {
 
   deletePhoto(photoId : number ) {
     return this.http.delete(this.baseUrl + 'users/delete-photo/'+ photoId);
+  }
+
+  addLike(username: string) {
+    return this.http.post(this.baseUrl + 'likes/' + username, {});
+  }
+
+  getLikes(predicate: string, pageNumber, pageSize) {
+    let params = this.getPaginationHeaders(pageNumber, pageSize);
+    params = params.append('predicate', predicate);
+    return this.getPaginatedResult<Partial<Member[]> >(this.baseUrl + 'likes', params);
   }
 }
