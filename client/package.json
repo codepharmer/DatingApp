@@ -2,11 +2,12 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "ng": "nx",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "node ./decorate-angular-cli.js"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +44,10 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.0.2",
     "@angular/compiler-cli": "~12.0.2",
+    "@nrwl/cli": "^12.3.6",
+    "@nrwl/nx-cloud": "^12.2.1",
+    "@nrwl/tao": "^12.3.6",
+    "@nrwl/workspace": "^12.3.6",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",
