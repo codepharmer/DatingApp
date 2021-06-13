@@ -9,8 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using API.Entities;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
-namespace API.Extenstions
+namespace API.Extensions
 {
     public static class IdentityServiceExtensions
     {
@@ -44,7 +45,7 @@ namespace API.Extenstions
                 {
                     OnMessageReceived = context => 
                     {
-                        var accessToken = context.Request.Query("access_token");
+                        var accessToken = context.Request.Query["access_token"];
 
                         var path = context.HttpContext.Request.Path;
 
@@ -56,7 +57,7 @@ namespace API.Extenstions
                         return Task.CompletedTask;
 
                     }
-                }
+                };
             });
 
             services.AddAuthorization(opt => 

@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace API.Extenstions
+namespace API.Extensions
 {
     public static class ClaimsPrincipleExtensions
     {
